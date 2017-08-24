@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-
+import { FormControl, Col } from 'react-bootstrap';
 // export const SearchBar = () => {
     //     return (
     //         <div>
@@ -27,11 +27,20 @@ export class SearchBar extends Component {
 
     render() {
         return (
-            <div>
-                <input type="search" placeholder="Enter Video" value= {this.state.term}
-                onChange = {event => this.setState({term: event.target.value})} />
-                
-            </div>
+            <Col sm={6} md ={6} xsOffset={3}>
+            
+            <FormControl type="text" 
+            placeholder="Search" 
+            value= {this.state.term} 
+            onChange = {event => this.setState({term: event.target.value})}
+            />
+            
+           </Col>
+          
+            
         );
     }
 }
+
+// <input type="search" placeholder="Enter Video" value= {this.state.term}
+// onChange = {event => this.setState({term: event.target.value})} />

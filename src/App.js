@@ -1,12 +1,10 @@
 import React, { Component } from 'react';
-import logo from './logo.svg';
-import './App.css';
-import { Button, Jumbotron, Grid,Row, Well } from 'react-bootstrap';
+import { Button, Navbar, Grid, Row,FormGroup,Jumbotron } from 'react-bootstrap';
 import { SearchBar, VideoDetails, VideoList } from './components/video'
 import YTSearch from 'youtube-api-search'
+import logo from './logo.svg';
+import './App.css';
 
-// const API_KEY = 'AIzaSyAa5rV74n70rq3NlVlM2jb2Op7Q2_w3wDo';
-// YTSearch({key:API_KEY, term: 'surfboard'}, data => console.log(data));
 
 class App extends Component {
 
@@ -15,7 +13,8 @@ class App extends Component {
     super(props)
 
     this.state = {
-      videos: []
+      videos: [],
+      selectedVideo: null
     }
       
   }
@@ -28,38 +27,38 @@ class App extends Component {
 
   componentDidMount(){
     const API_KEY = 'AIzaSyAa5rV74n70rq3NlVlM2jb2Op7Q2_w3wDo';
-    YTSearch({key:API_KEY, term: 'surfboard'}, data => this.setState({videos: data}));
+    YTSearch({key:API_KEY, term: 'Game Of Thrones'}, data => this.setState({videos: data, selectedVideo: data[0]}));
+    
+    
   }
 
   render() {
     return (
-      // <div className="App">
+      
+      <div className="App">
 
-      //  <SearchBar/> 
-      //   <VideoDetails/> 
-      //    <VideoList videos = {this.state.videos}/> 
-       
-      // </div>
+      
 
-    
-      <Grid>
+
+      <Grid fluid = {true}>
+        <Jumbotron>
+          <h1>Hello, world!</h1>
+          <p>This is a simple hero unit, a simple jumbotron-style component for calling extra attention to featured content or information.</p>
+          <SearchBar/> 
+        </Jumbotron>
+
       <Row className="show-grid">
-      <Jumbotron>
-      <h1>Hello, world!</h1>
-      <p>This is a simple hero unit, a simple jumbotron-style component for calling extra attention to featured content or information.</p>
-      <p><Button bsStyle="primary">Learn more</Button></p>
-    </Jumbotron>
+        <VideoDetails video_data = {this.state.selectedVideo}/> 
+        <VideoList videos = {this.state.videos} OnSelectedVideo = {video => this.setState({selectedVideo: video})}/> 
       </Row>
-  
-      <Row className="show-grid">
-      <Well>Look I'm in a well!</Well>
-      </Row>
-  
 
     </Grid>
 
+   
+      </div>
 
 
+  
   
     );
   }
