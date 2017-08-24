@@ -1,11 +1,10 @@
 import React from 'react';
+import { Card } from 'antd';
 
-export const VideoListItem = () => {
+export const VideoListItem = (props) => {
     return (
-        <div>
-        <h1>
-            VideoListItem
-        </h1>
-    </div>
+        
+            <li>{props.item}</li>
+       
     );
 }
