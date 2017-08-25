@@ -20,7 +20,7 @@ export const VideoDetails = ({video_data}) => {
     return (
         <Col xs={12} md={6} lg={6}>
         <ResponsiveEmbed a16by9>
-            <iframe src={URL}></iframe>
+            <iframe src={URL} title={title}></iframe>
       </ResponsiveEmbed>
 
         <div>

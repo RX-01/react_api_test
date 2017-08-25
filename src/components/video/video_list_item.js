@@ -7,7 +7,6 @@ export const VideoListItem = (props) => {
     const selected_video = props.OnVideo;
 
     const title = video_data.snippet.title;
-    const description = video_data.snippet.description;
     const thumbnail_url = video_data.snippet.thumbnails.default.url;
     const thumbnail_width = video_data.snippet.thumbnails.default.width;
     const thumbnail_height = video_data.snippet.thumbnails.default.height;
@@ -21,7 +20,7 @@ export const VideoListItem = (props) => {
         <ListGroupItem href="#" onClick = {selected => selected_video(video_data) }>
         <Media>
         <Media.Left>
-           <img width={thumbnail_width} height={thumbnail_height} src={thumbnail_url} alt="Image"/>
+           <img width={thumbnail_width} height={thumbnail_height} src={thumbnail_url} alt="thumbnail"/>
          </Media.Left>
          <Media.Body>
            <Media.Heading>{title}</Media.Heading>

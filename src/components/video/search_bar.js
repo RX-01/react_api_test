@@ -19,20 +19,22 @@ export class SearchBar extends Component {
             term: ''
         }
     }
-
-    // onInputChange(event) {
-    //     console.log(event.target.value)
-    // }
-
+    // funtion if needed 
+    OnInputChange(searchterm) {
+        this.setState({term: searchterm})
+        this.props.search(this.state.term)
+    }
 
     render() {
         return (
-            <Col sm={6} md ={6} xsOffset={3}>
+            <Col sm={4} md ={4} xsOffset={4}>
             
             <FormControl type="text" 
-            placeholder="Search" 
+            placeholder="Whats your favorite video ?" 
             value= {this.state.term} 
-            onChange = {event => this.setState({term: event.target.value})}
+            onChange = {event => this.OnInputChange(event.target.value)} 
+            // onChange = {event => this.setState({term: event.target.value})}
+            // onSearched = {this.props.search(this.state.term)} 
             />
             
            </Col>
